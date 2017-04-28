@@ -1,4 +1,6 @@
-example from https://www.webmasterworld.com/new_web_development/3837972.htm
+<!DOCTYPE HTML>
+
+//example from https://www.webmasterworld.com/new_web_development/3837972.htm
 
 for ($i=1;$i<=$rownums;$i++) { 
  $partname = 'Part' . $i; 
