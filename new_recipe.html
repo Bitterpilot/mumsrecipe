@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>new_recipe</title>
+</head>
+<body>
+
+<h1>New Recipe</h1>
+
+<form action="/action_page.php" method="get" name="myForm">
+
+	<input type="text" name="recipe_name" value="Recipe Name">
+    <input type="text" name="serves" value="Number of serves"><br>
+
+<p>Main ingredients:<br>
+    
+    <input type="text" name="mainingredient" value="Ingredient">
+	<input type="" name="amount" value="Amount">
+	<select>
+		<option value="units">Units</option>
+		<option value="kilogram">kilogram</option>
+		<option value="milligram">milligram</option>
+		<option value="gram">gram</option>
+		<option value="Liter">Liter</option>
+	</select>
+    <br>
+    
+    
+<p>Other ingredients:<br>
+    
+    <input type="text" name="mainingredient" value="Ingredient">
+	<input type="" name="amount" value="Amount">
+	<select>
+		<option value="units">Units</option>
+		<option value="kilogram">kilogram</option>
+		<option value="milligram">milligram</option>
+		<option value="gram">gram</option>
+		<option value="Liter">Liter</option>
+	</select>
+    <br>
+   
+<p>Method:<br>
+	<textarea rows="4" cols="50"></textarea> 
+    <p>Source:<br>
+	<input type="text" name="method" value=""><br>
+
+	<input type="button" onclick="formSubmit()" value="Save Recipe">
+</form>
+</body>
+</html>
