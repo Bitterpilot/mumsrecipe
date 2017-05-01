@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>New Recipe</title>
-        <link rel="stylesheet" href="css/style.css">
+        <title>new_recipe</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
 
@@ -13,7 +13,7 @@
             <input type="text" name="recipe_name" placeholder="recipe name">
             <input type="number" name="serves" placeholder="number of serves"><br>
 
-            <h3>Main ingredients:</h3>
+            <p>Main ingredients:<br>
 
                 <input type="text" name="mainingredient" placeholder="Ingredient">
                 <input type="number" name="amount" placeholder="Number">
@@ -28,7 +28,7 @@
                 <br>
 
 
-            <h3>Other ingredients:</h3>
+            <p>Other ingredients:<br>
 
                 <input type="text" name="otheringredient" placeholder="Ingredient">
                 <input type="number" name="amount" placeholder="Number">
@@ -42,8 +42,8 @@
                 <br>
 
             <p>Method:<br>
-                <textarea> </textarea>
-                    <p>Source:<br>
+                <textarea rows="4" cols="50"></textarea> 
+            <p>Source:<br>
                 <input type="text" name="method" value=""><br>
 
                 <input type="button" onclick="formSubmit()" value="Save Recipe">
