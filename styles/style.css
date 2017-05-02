@@ -1,24 +1,29 @@
-div.header {
-	background-color: #A09ECC; 
-	color: #ffffff; 
+div.top {
+	background-color: #79302b;
+	color: #ffffff;
 	padding: 7px;
-	border-radius: 10px; 
-	margin: 4px 18%; 
+	border-radius: 10px;
+	margin: 4px;
 	}
 
+div.main {
+	position: relative;
+	overflow: auto;
+}
+
 div.sidebar  {
-        background-color: #32a4e7;
+        background-color: #79302b;
         color: #ffffff;
         padding: 1%;
         width: 15%;
         bottom: 0;
         top: 0;
         left: 0;
+				border-radius: 10px;
         position: absolute;
 	}
 
 div.form {
-	margin: 0 18%
 	}
 
 input[type=text] {
@@ -30,7 +35,7 @@ input[type=number]{
 textarea{
 }
 
-input[type=text]:focus, textarea:focus, input[type=number]:focus { 
-	background-color: lightblue; 
-	border: 3px solid #555; 
+input[type=text]:focus, textarea:focus, input[type=number]:focus {
+	background-color: lightblue;
+	border: 3px solid #555;
 	}
