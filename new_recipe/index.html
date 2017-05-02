@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Recipe</title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+    </head>
+    <body>
+	   <div class="header">
+         <h1>New Recipe</h1>
+	   </div>
+
+	   <div class="sidebar">
+         <h1>Menu</h1>
+	   </div>
+
+     <form action="/action_page.php" method="get" name="myForm">
+		<div class="form">
+            <input type="text" name="recipe_name" placeholder="recipe name">
+            <input type="number" name="serves" placeholder="number of serves"><br>
+		
+	
+            <h3>Main ingredients:</h3>
+                <input type="text" name="mainingredient" placeholder="Ingredient">
+                <input type="number" name="amount" placeholder="Number">
+                <select> <--populate by php-->
+                    <option value="" disabled selected>Select Units</option>
+                    <option value="Items">Items</option>
+                    <option value="eggs">eggs</option>
+                    <option value="cube">cube</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="milligram">milligram</option>
+                    <option value="gram">gram</option>
+                    <option value="Liter">Liter</option>
+
+                </select>
+                <br>
+		
+            <h4>Other ingredients:</h3>
+                <input type="text" name="mainingredient" placeholder="Ingredient">
+                <input type="number" name="amount" placeholder="Number">
+                <select> <--populate by php-->
+                    <option value="" disabled selected>Select Units</option>
+                    <option value="Items">Items</option>
+                    <option value="eggs">eggs</option>
+                    <option value="cube">cube</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="milligram">milligram</option>
+                    <option value="gram">gram</option>
+                    <option value="Liter">Liter</option>
+                </select>
+                <br>
+
+		
+
+		
+            <h4>Method:</h4>
+                <textarea>Enter method...</textarea> 
+            <h5>Source:</h5>
+                <input type="text" name="method" value=""><br>
+
+                <input type="button" onclick="formSubmit()" value="Save Recipe">
+</div>
+        </form>
+    </body>
+</html>
