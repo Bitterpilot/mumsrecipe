@@ -1,5 +1,5 @@
 <!DOCTYPE PHP>
-
+/*
 //example from https://www.webmasterworld.com/new_web_development/3837972.htm
 
 for ($i=1;$i<=$rownums;$i++) { 
@@ -22,3 +22,4 @@ for ($i=1;$i<=$rownums;$i++) {
   <td id="ServiceDetailColumn"><input type="text" name="' . $pricename . '" id="' . $pricename . '" size="7" value="' . $data[$pricename] . '"></td> 
   <td id="ServiceDetailColumn"><input type="text" name="' . $extname . '" id="' . $extname . '" size="7" value="' . $data[$extname] . '"></td>'; 
 } 
+*/
