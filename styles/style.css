@@ -2,7 +2,7 @@ div.top {
 	background-color: #79302b;
 	color: #ffffff;
 	border-radius: 10px;
-	margin: 4px;
+	buffer: 4px;
 	}
 
 div.main {
