@@ -18,12 +18,12 @@ div.sidebar  {
         bottom: 0;
         top: 0;
         left: 0;
-	border-radius: 5%;
+	border-radius: 2%;
         position: absolute;
 	}
 
 div.form {
-	padding: 0 25%;
+	padding: 0 20%;
 	}
 
 input[type=text] {
