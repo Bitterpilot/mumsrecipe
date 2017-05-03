@@ -23,6 +23,10 @@ div.sidebar  {
         position: absolute;
 	}
 
+ul.sidebarlist {
+	list-style-type: none;
+	}
+
 div.form {
 	padding: 0 20%;
 	}
