@@ -23,7 +23,7 @@ div.sidebar  {
         position: absolute;
 	}
 
-ul.sidebarlist {
+ul.sidebarlist, li.sidebarlist {
 	list-style-type: none;
 	}
 
