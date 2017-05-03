@@ -1,9 +1,9 @@
 div.top {
 	background-color: #79302b;
-        color: #ffffff;
-        padding: 1%;
-	border-radius: 2%;
-        position: absolute;
+	color: #ffffff;
+	padding: 7px;
+	border-radius: 10px;
+	margin: 4px;
 	}
 
 div.main {
