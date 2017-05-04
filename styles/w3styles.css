@@ -1,11 +1,12 @@
 body  {
         font: 100% Lucida Sans, Verdana;
+        color: pink;
         margin: 20px;
         line-height: 26px;
       }
 　
-      .container  {
-        xmin-width: 900px;
+      div.container  {
+        min-width: 900px;
       }
 　
       .wrapper  {
