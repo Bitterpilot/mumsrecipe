@@ -13,12 +13,12 @@ body  {
         overflow: auto;
       }
 　
-      #top, #bottom, .menuitem  {
+      top, #bottom, .menuitem  {
         border-radius: 4px;
         margin: 4px;
       }
 　
-      #top  {
+      top  {
         background-color: #4CAF50;
         color: #ffffff;
         padding: 15px;
@@ -44,7 +44,7 @@ body  {
         line-height: 14px;
       }
 　
-      #top h1, #top p, #menulist  {
+      top h1, top p, #menulist  {
         margin: 0;
         padding: 0;
       }
