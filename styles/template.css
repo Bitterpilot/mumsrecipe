@@ -3,7 +3,8 @@ header {
   position: fixed;
   margin: 0;
   padding: 0;
-  width: 25%;
+  width: 100%;
+  margin-left: 20%;
   background: yellow;
 }
 
@@ -18,4 +19,5 @@ nav {
 }
 
 article {
+  margin: 20%
 }
