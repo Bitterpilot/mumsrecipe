@@ -1,4 +1,3 @@
-<!DOCTYPE css>
 /* main Elements*/
 header {
   position: 
@@ -7,7 +6,7 @@ header {
 
 nav {
   position: fixed;
-  background: blue;
+  background: lightblue;
   
 }
 
