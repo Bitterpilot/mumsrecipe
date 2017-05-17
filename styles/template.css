@@ -1,12 +1,17 @@
 /* main Elements*/
 header {
   position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 25%;
   background: yellow;
 }
 
 nav {
   position: fixed;
-  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
   background: lightblue;
   
 }
