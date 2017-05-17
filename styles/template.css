@@ -4,7 +4,7 @@ header {
   margin: 0;
   padding: 0;
   width: 100%;
-  margin-left: 20%;
+  margin-left: 16%;
   background: yellow;
 }
 
@@ -19,5 +19,6 @@ nav {
 }
 
 article {
-  margin: 20%
+  padding-top: 10%;
+  margin-left: 16%
 }
