@@ -1,11 +1,12 @@
 /* main Elements*/
 header {
-  position: 
+  position: ;
   background: yellow;
 }
 
 nav {
   position: fixed;
+  list-style-type: none;
   background: lightblue;
   
 }
