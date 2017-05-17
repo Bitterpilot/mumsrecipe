@@ -1,9 +1,14 @@
 <!DOCTYPE css>
 /* main Elements*/
 header {
+  position: 
+  background: yellow;
 }
 
 nav {
+  position: fixed;
+  background: blue;
+  
 }
 
 article {
