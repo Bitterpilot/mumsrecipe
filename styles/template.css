@@ -22,3 +22,11 @@ article {
   padding-top: 10%;
   margin-left: 16%
 }
+
+/*detailed elements*/
+a:link {
+  color: black
+}
+a:visited {
+  color: black
+}
