@@ -1,34 +1,38 @@
 /* main Elements*/
 header {
   position: fixed;
-  margin: 0;
   padding: 0;
   width: 100%;
-  margin-left: 15%;
   background: yellow;
+  border-radius: 4px;
+  margin: 4px
 }
 
 nav {
   position: fixed;
-  margin: 0;
-  padding: 0;
   width: 15%;
   height: 100%;
   background: lightblue;
-  
+  border-radius: 4px;
+  margin: 100px 4px 4px 4px
 }
+
+nav ul, nav li{
+  padding: 2px;
+  border-radius: 4px;
+  margin: 4px
+}
+
+nav li{
+  background-color: #f1f1f1;
+  border: 1px solid #d4d4d4;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+nav li:hover{ background-color: green;}
 
 article {
   padding-top: 60px;
-  margin-left: 16%
+  margin-left: 16%;
 }
-
-/*detailed elements*/
-a:link {
-  color: black
-}
-a:visited {
-  color: black
-}
-
-a:hover { color:green}
