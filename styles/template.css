@@ -1,20 +1,25 @@
+body{
+  margin: 20px
+}
+
 /* main Elements*/
 header {
-  position: fixed;
-  padding: 0;
-  width: 100%;
-  background: yellow;
+  background: lightgreen;
   border-radius: 4px;
-  margin: 4px
+  margin: 4px;
+  padding: 15px;
+}
+
+h2, header h1 {
+  margin: 0;
+  padding: 0
 }
 
 nav {
-  position: fixed;
-  width: 15%;
-  height: 100%;
-  background: lightblue;
+  width: 150px;
+  float: left;
   border-radius: 4px;
-  margin: 100px 4px 4px 4px
+  margin: 4px
 }
 
 nav ul, nav li{
@@ -30,9 +35,11 @@ nav li{
   cursor: pointer;
 }
 
-nav li:hover{ background-color: green;}
+nav li:hover{ background-color: white;}
+
+.active{background-color: lightgreen}
 
 article {
-  padding-top: 60px;
-  margin-left: 16%;
+  padding: 10px;
+  margin-left: 150px;
 }
