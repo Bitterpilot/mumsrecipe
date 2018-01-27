@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.views import generic
 
-# Create your views here.
+
+class IndexView(generic.ListView):
+    template_name = 'entryform/index.html'
+
+    # def
+
+
+class DetailView(generic.DetailView):
+    template_name = 'entryform/detail.html'
+
+    # def
