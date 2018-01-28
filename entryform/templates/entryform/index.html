@@ -1,1 +1,12 @@
-<h1>Index</h1>
+<!--{% load static %}-->
+<!--<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />-->
+
+{% if latest_recipes_list %}
+    <ul>
+    {% for question in latest_recipes_list %}
+        <li><a href="">{{ recipe.recipe_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No recipes are available.</p>
+{% endif %}
