@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'entryform',
+    'recipes',
     # Defaults
     'django.contrib.admin',
     'django.contrib.auth',

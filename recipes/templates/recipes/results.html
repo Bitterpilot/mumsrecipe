@@ -1,0 +1,9 @@
+<h1>{{ recipe.recipe_name }}</h1>
+
+<ul>
+    {% for ingredient in recipe.ingredient_set.all %}
+        <li>{{ ingredient.ingredient_name }} -- {{ ingredient.votes }} vote{{ ingredient.votes|pluralize }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'recipes:detail' recipe.id %}">Vote again?</a>
