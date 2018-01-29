@@ -2,11 +2,8 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'recipes:vote' recipe.id %}" method="post">
-    {% csrf_token %}
-        {% for ingredient in recipe.ingredient_set.all %}
-            <input type="radio" name="ingredient" id="ingredient{{ forloop.counter }}" value="{{ ingredient.id }}" />
-            <label for="ingredient{{ forloop.counter }}">{{ ingredient.ingredient_name }}</label><br />
-        {% endfor %}
-    <input type="submit" value="Vote" />
-</form>
+
+    {% for ingredient in recipe.ingredient_set.all %}
+        {{ ingredient.quantity }} {{ingredient.unit}} {{ ingredient.ingredient_name }}
+    {% endfor %}
+

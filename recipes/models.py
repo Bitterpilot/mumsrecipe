@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published', default=timezone.now)
 
     def __str__(self):
         return self.recipe_name
@@ -21,7 +21,14 @@ class Recipe(models.Model):
 class Ingredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient_name = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)  # todo replace this with quantity?
+    quantity = models.FloatField(default=0)
+    unit_choices = (
+        ('Kg', 'Kilogram'),
+        ('g', 'Gram'),
+        ('Lbs', 'Pounds'),
+        ('Packet', 'Packet'),
+    )
+    unit = models.CharField(max_length=200, choices=unit_choices)
 
     def __str__(self):
         return self.ingredient_name

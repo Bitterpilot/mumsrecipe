@@ -5,7 +5,7 @@ from .models import Recipe, Ingredient
 
 class IngredientInline(admin.TabularInline):
     model = Ingredient
-    extra = 3
+    extra = 2
 
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class RecipeAdmin(admin.ModelAdmin):
     list_filter = ['pub_date']
     fieldsets = [
         (None,               {'fields': ['recipe_name']}),
-        ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+        ('Set publish date, default is immediately', {'fields': ['pub_date'], 'classes':['collapse']}),
     ]
     inlines = [IngredientInline]
 
