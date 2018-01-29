@@ -5,6 +5,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from .models import Recipe
+#  todo check that these are still valid after all that refactoring
 
 
 class recipeModelTests(TestCase):
