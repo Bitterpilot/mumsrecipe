@@ -4,53 +4,53 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Choice, Question
+from .models import Ingredient, Recipe
 
 
 class IndexView(generic.ListView):
     template_name = 'recipes/index.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'latest_recipe_list'
 
     def get_queryset(self):
         """
-            Return the last five published questions (not including those set to be
+            Return the last five published recipes (not including those set to be
             published in the future).
             """
-        return Question.objects.filter(
+        return Recipe.objects.filter(
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
-    model = Question
+    model = Recipe
     template_name = 'recipes/detail.html'
 
     def get_queryset(self):
         """
-        Excludes any questions that aren't published yet.
+        Excludes any recipes that aren't published yet.
         """
-        return Question.objects.filter(pub_date__lte=timezone.now())
+        return Recipe.objects.filter(pub_date__lte=timezone.now())
 
 
 class ResultsView(generic.DetailView):
-    model = Question
+    model = Recipe
     template_name = 'recipes/results.html'
 
 
-def vote(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
+def vote(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form.
+        selected_ingredient = recipe.ingredient_set.get(pk=request.POST['ingredient'])
+    except (KeyError, Ingredient.DoesNotExist):
+        # Redisplay the recipe voting form.
         return render(request, 'recipes/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a choice.",
+            'recipe': recipe,
+            'error_message': "You didn't select a ingredient.",
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
+        selected_ingredient.votes += 1
+        selected_ingredient.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('recipes:results', args=(question.id,)))
+        return HttpResponseRedirect(reverse('recipes:results', args=(recipe.id,)))

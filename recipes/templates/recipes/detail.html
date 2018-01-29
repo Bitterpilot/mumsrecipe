@@ -1,12 +1,12 @@
-<h1>{{ question.question_text }}</h1>
+<h1>{{ recipe.recipe_name }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'recipes:vote' question.id %}" method="post">
+<form action="{% url 'recipes:vote' recipe.id %}" method="post">
     {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+        {% for ingredient in recipe.ingredient_set.all %}
+            <input type="radio" name="ingredient" id="ingredient{{ forloop.counter }}" value="{{ ingredient.id }}" />
+            <label for="ingredient{{ forloop.counter }}">{{ ingredient.ingredient_name }}</label><br />
         {% endfor %}
     <input type="submit" value="Vote" />
 </form>

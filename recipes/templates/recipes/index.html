@@ -1,10 +1,10 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
 
-{% if latest_question_list %}
+{% if latest_recipe_list %}
     <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'recipes:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% for recipe in latest_recipe_list %}
+        <li><a href="{% url 'recipes:detail' recipe.id %}">{{ recipe.recipe_name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

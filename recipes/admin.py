@@ -1,22 +1,22 @@
 from django.contrib import admin
 
-from .models import Question, Choice
+from .models import Recipe, Ingredient
 
 
-class ChoiceInline(admin.TabularInline):
-    model = Choice
+class IngredientInline(admin.TabularInline):
+    model = Ingredient
     extra = 3
 
 
-class QuestionAdmin(admin.ModelAdmin):
-    search_fields = ['question_text']
-    list_display = ('question_text', 'pub_date', 'was_published_recently')
+class RecipeAdmin(admin.ModelAdmin):
+    search_fields = ['recipe_name']
+    list_display = ('recipe_name', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
     fieldsets = [
-        (None,               {'fields': ['question_text']}),
+        (None,               {'fields': ['recipe_name']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
-    inlines = [ChoiceInline]
+    inlines = [IngredientInline]
 
 
-admin.site.register(Question, QuestionAdmin)
+admin.site.register(Recipe, RecipeAdmin)
