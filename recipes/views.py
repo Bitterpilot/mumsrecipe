@@ -7,7 +7,7 @@ from .models import Recipe
 
 
 class IndexView(generic.ListView):
-    template_name = 'entryform/index.html'
+    template_name = 'recipes/index.html'
     context_object_name = 'latest_recipe_list'
 
     def get_queryset(self):
