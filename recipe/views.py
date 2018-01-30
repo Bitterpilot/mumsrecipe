@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -8,14 +10,14 @@ from .models import Ingredient, Recipe
 
 
 class IndexView(generic.ListView):
-    template_name = 'recipes/index.html'
+    template_name = 'recipe/index.html'
     context_object_name = 'latest_recipe_list'
 
     def get_queryset(self):
         """
-            Return the last five published recipes (not including those set to be
-            published in the future).
-            """
+        Return the last five published recipe(not including those set to be
+        published in the future).
+        """
         return Recipe.objects.filter(
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
@@ -23,18 +25,18 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Recipe
-    template_name = 'recipes/detail.html'
+    template_name = 'recipe/detail.html'
 
     def get_queryset(self):
         """
-        Excludes any recipes that aren't published yet.
+        Excludes any recipe that aren't published yet.
         """
         return Recipe.objects.filter(pub_date__lte=timezone.now())
 
 
 class ResultsView(generic.DetailView):
     model = Recipe
-    template_name = 'recipes/results.html'
+    template_name = 'recipe/results.html'
 
 
 def vote(request, recipe_id):
@@ -43,7 +45,7 @@ def vote(request, recipe_id):
         selected_ingredient = recipe.ingredient_set.get(pk=request.POST['ingredient'])
     except (KeyError, Ingredient.DoesNotExist):
         # Redisplay the recipe voting form.
-        return render(request, 'recipes/detail.html', {
+        return render(request, 'recipe/detail.html', {
             'recipe': recipe,
             'error_message': "You didn't select a ingredient.",
         })
@@ -53,4 +55,4 @@ def vote(request, recipe_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('recipes:results', args=(recipe.id,)))
+        return HttpResponseRedirect(reverse('recipe:results', args=(recipe.id,)))

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'recipes',
+    'recipe',
     # Defaults
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'recipe',
+        'USER': 'django',
+        'PASSWORD': 'PASSWORD',
+        'HOST': '192.168.1.3',
+        'PORT': '32776',
     }
 }
 

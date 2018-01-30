@@ -11,7 +11,7 @@ class RecipeModelTests(TestCase):
 
     def test_was_published_recently_with_future_recipe(self):
         """
-        was_published_recently() returns False for recipes whose pub_date
+        was_published_recently() returns False for recipe whose pub_date
         is in the future.
         """
         time = timezone.now() + datetime.timedelta(days=30)
@@ -20,7 +20,7 @@ class RecipeModelTests(TestCase):
 
     def test_was_published_recently_with_old_recipe(self):
         """
-        was_published_recently() returns False for recipes whose pub_date
+        was_published_recently() returns False for recipe whose pub_date
         is older than 1 day.
         """
         time = timezone.now() - datetime.timedelta(days=1, seconds=1)
@@ -29,7 +29,7 @@ class RecipeModelTests(TestCase):
 
     def test_was_published_recently_with_recent_recipe(self):
         """
-        was_published_recently() returns True for recipes whose pub_date
+        was_published_recently() returns True for recipe whose pub_date
         is within the last day.
         """
         time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
@@ -40,31 +40,31 @@ class RecipeModelTests(TestCase):
 def create_recipe(recipe_name, days):
     """
     Create a recipe with the given `recipe_name` and published the
-    given number of `days` offset to now (negative for recipes published
-    in the past, positive for recipes that have yet to be published).
+    given number of `days` offset to now (negative for recipe published
+    in the past, positive for recipe that have yet to be published).
     """
     time = timezone.now() + datetime.timedelta(days=days)
     return Recipe.objects.create(recipe_name=recipe_name, pub_date=time)
 
 
 class RecipeIndexViewTests(TestCase):
-    def test_no_recipes(self):
+    def test_no_recipe(self):
         """
-        If no recipes exist, an appropriate message is displayed.
+        If no recipe exist, an appropriate message is displayed.
         """
-        response = self.client.get(reverse('recipes:index'))
+        response = self.client.get(reverse('recipe:index'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "No recipes are available.")
+        self.assertContains(response, "No recipe are available.")
         self.assertQuerysetEqual(response.context['latest_recipe_list'], [])
 
     # todo ensure test is syntactically correct, then ensure method is correct
     # def test_past_recipe(self):
     #     """
-    #     recipes with a pub_date in the past are displayed on the
+    #     recipe with a pub_date in the past are displayed on the
     #     index page.
     #     """
     #     create_recipe(recipe_name="Past recipe.", days=-30)
-    #     response = self.client.get(reverse('recipes:index'))
+    #     response = self.client.get(reverse('recipe:index'))
     #     self.assertQuerysetEqual(
     #         response.context['latest_recipe_list'],
     #         ['<recipe: Past recipe.>']
@@ -72,36 +72,36 @@ class RecipeIndexViewTests(TestCase):
 
     def test_future_recipe(self):
         """
-        recipes with a pub_date in the future aren't displayed on
+        recipe with a pub_date in the future aren't displayed on
         the index page.
         """
         create_recipe(recipe_name="Future recipe.", days=30)
-        response = self.client.get(reverse('recipes:index'))
-        self.assertContains(response, "No recipes are available.")
+        response = self.client.get(reverse('recipe:index'))
+        self.assertContains(response, "No recipe are available.")
         self.assertQuerysetEqual(response.context['latest_recipe_list'], [])
 
     # todo ensure test is syntactically correct, then ensure method is correct
     # def test_future_recipe_and_past_recipe(self):
     #     """
-    #     Even if both past and future recipes exist, only past recipes
+    #     Even if both past and future recipe exist, only past recipe
     #     are displayed.
     #     """
     #     create_recipe(recipe_name="Past recipe.", days=-30)
     #     create_recipe(recipe_name="Future recipe.", days=30)
-    #     response = self.client.get(reverse('recipes:index'))
+    #     response = self.client.get(reverse('recipe:index'))
     #     self.assertQuerysetEqual(
     #         response.context['latest_recipe_list'],
     #         ['<recipe: Past recipe.>']
     #     )
 
     # todo ensure test is syntactically correct, then ensure method is correct
-    # def test_two_past_recipes(self):
+    # def test_two_past_recipe(self):
     #     """
-    #     The recipes index page may display multiple recipes.
+    #     The recipe index page may display multiple recipe.
     #     """
     #     create_recipe(recipe_name="Past recipe 1.", days=-30)
     #     create_recipe(recipe_name="Past recipe 2.", days=-5)
-    #     response = self.client.get(reverse('recipes:index'))
+    #     response = self.client.get(reverse('recipe:index'))
     #     self.assertQuerysetEqual(
     #         response.context['latest_recipe_list'],
     #         ['<recipe: Past recipe 2.>', '<recipe: Past recipe 1.>']
@@ -115,7 +115,7 @@ class RecipeDetailViewTests(TestCase):
         returns a 404 not found.
         """
         future_recipe = create_recipe(recipe_name='Future recipe.', days=5)
-        url = reverse('recipes:detail', args=(future_recipe.id,))
+        url = reverse('recipe:detail', args=(future_recipe.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
@@ -125,6 +125,6 @@ class RecipeDetailViewTests(TestCase):
         displays the recipe's text.
         """
         past_recipe = create_recipe(recipe_name='Past recipe.', days=-5)
-        url = reverse('recipes:detail', args=(past_recipe.id,))
+        url = reverse('recipe:detail', args=(past_recipe.id,))
         response = self.client.get(url)
         self.assertContains(response, past_recipe.recipe_name)

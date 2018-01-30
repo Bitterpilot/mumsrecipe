@@ -1,11 +1,18 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.core.validators import MinValueValidator
 
 
 class Recipe(models.Model):
-    recipe_name = models.CharField(max_length=200)
+    """The top level description"""
+    recipe_name = models.CharField("Recipe Title", max_length=250)
     pub_date = models.DateTimeField('date published', default=timezone.now)
+    photo = models.ImageField('photo', blank=True, upload_to="upload/recipe_photos")
+    info = models.TextField('info', default='', help_text="Short description of the recipe")
+    servings = models.IntegerField('servings',
+                                   default=1,
+                                   help_text="enter total number of servings")
 
     def __str__(self):
         return self.recipe_name
@@ -19,6 +26,7 @@ class Recipe(models.Model):
 
 
 class Ingredient(models.Model):
+    """The individual ingredients"""
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient_name = models.CharField(max_length=200)
     quantity = models.FloatField(default=0)
@@ -32,3 +40,14 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.ingredient_name
+
+
+class IngredientCost(models.Model):
+    """The price of the individual ingredient"""
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+
+
+class Cuisine(models.Model):
+    """types of cuisine"""
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    cuisine = models.CharField(max_length=240)
