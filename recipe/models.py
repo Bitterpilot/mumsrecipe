@@ -1,26 +1,31 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-from django.core.validators import MinValueValidator
+from taggit.managers import TaggableManager
+from django.utils.translation import gettext as _
 
 
 class Recipe(models.Model):
     """The top level description"""
-    recipe_name = models.CharField("Recipe Title", max_length=250)
-    pub_date = models.DateTimeField('date published', default=timezone.now)
-    photo = models.ImageField('photo', blank=True, upload_to="upload/recipe_photos")
-    info = models.TextField('info', default='', help_text="Short description of the recipe")
-    servings = models.IntegerField('servings',
-                                   default=1,
-                                   help_text="enter total number of servings")
+    recipe_name = models.CharField(_("Recipe Title"), max_length=250)
+    # author = models.ForeignKey(User, verbose_name=_('user'))
+    photo = models.ImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
+    # course = TaggableManager(_('Course'), help_text="separate with commas", blank=True)
+    # cuisine = TaggableManager(_('Cuisine'), help_text="separate with commas", blank=True)
+    info = models.TextField(_('info'), help_text="enter information about the recipe")
+    cook_time = models.IntegerField(_('cook time'), default=None, help_text="enter time in minutes")
+    servings = models.IntegerField(_('servings'), help_text="enter total number of servings")
+    directions = models.TextField(_('directions'), default=None)
+    publish_date = models.DateTimeField(default=timezone.now)
+    update_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.recipe_name
 
     def was_published_recently(self):
         now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now
-    was_published_recently.admin_order_field = 'pub_date'
+        return now - datetime.timedelta(days=20) <= self.publish_date <= now
+    was_published_recently.admin_order_field = 'publish_date'
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
 
@@ -42,12 +47,12 @@ class Ingredient(models.Model):
         return self.ingredient_name
 
 
-class IngredientCost(models.Model):
-    """The price of the individual ingredient"""
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-
-
-class Cuisine(models.Model):
-    """types of cuisine"""
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    cuisine = models.CharField(max_length=240)
+# class IngredientCost(models.Model):
+#     """The price of the individual ingredient"""
+#     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+#
+#
+# class Cuisine(models.Model):
+#     """types of cuisine"""
+#     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+#     cuisine = models.CharField(max_length=240)

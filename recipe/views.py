@@ -19,8 +19,8 @@ class IndexView(generic.ListView):
         published in the future).
         """
         return Recipe.objects.filter(
-            pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+            publish_date__lte=timezone.now()
+        ).order_by('-publish_date')[:5]
 
 
 class DetailView(generic.DetailView):
@@ -31,7 +31,7 @@ class DetailView(generic.DetailView):
         """
         Excludes any recipe that aren't published yet.
         """
-        return Recipe.objects.filter(pub_date__lte=timezone.now())
+        return Recipe.objects.filter(publish_date__lte=timezone.now())
 
 
 class ResultsView(generic.DetailView):

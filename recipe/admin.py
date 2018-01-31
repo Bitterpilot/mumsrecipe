@@ -10,11 +10,13 @@ class IngredientInline(admin.TabularInline):
 
 class RecipeAdmin(admin.ModelAdmin):
     search_fields = ['recipe_name']
-    list_display = ('recipe_name', 'pub_date', 'servings', 'was_published_recently')
-    list_filter = ['pub_date']
+    list_display = ('recipe_name', 'publish_date', 'servings', 'was_published_recently')
+    list_filter = ['publish_date']
     fieldsets = [
         (None,               {'fields': ['recipe_name']}),
-        ('Set publish date, default is immediately', {'fields': ['pub_date'], 'classes':['collapse']}),
+        ('Set publish date, default is immediately', {'fields': ['publish_date'], 'classes':['collapse']}),
+        ('Information', {'fields': ['cook_time', 'servings']}),
+        ('Directions', {'fields': ['directions']})
     ]
     inlines = [IngredientInline]
 

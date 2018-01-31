@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('recipe_name', models.CharField(max_length=250, verbose_name='Recipe Title')),
-                ('pub_date', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date published')),
+                ('publish_date', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date published')),
                 ('photo', models.ImageField(blank=True, upload_to='upload/recipe_photos', verbose_name='photo')),
                 ('info', models.TextField(default='', help_text='Short description of the recipe', verbose_name='info')),
                 ('servings', models.IntegerField(default=0, help_text='enter total number of servings', verbose_name='servings')),

@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'recipe',
+    # Dependencies
+    'taggit',
     # Defaults
     'django.contrib.admin',
     'django.contrib.auth',

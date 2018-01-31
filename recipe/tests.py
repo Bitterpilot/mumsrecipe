@@ -11,29 +11,29 @@ class RecipeModelTests(TestCase):
 
     def test_was_published_recently_with_future_recipe(self):
         """
-        was_published_recently() returns False for recipe whose pub_date
+        was_published_recently() returns False for recipe whose publish_date
         is in the future.
         """
         time = timezone.now() + datetime.timedelta(days=30)
-        future_recipe = Recipe(pub_date=time)
+        future_recipe = Recipe(publish_date=time)
         self.assertIs(future_recipe.was_published_recently(), False)
 
     def test_was_published_recently_with_old_recipe(self):
         """
-        was_published_recently() returns False for recipe whose pub_date
+        was_published_recently() returns False for recipe whose publish_date
         is older than 1 day.
         """
         time = timezone.now() - datetime.timedelta(days=1, seconds=1)
-        old_recipe = Recipe(pub_date=time)
+        old_recipe = Recipe(publish_date=time)
         self.assertIs(old_recipe.was_published_recently(), False)
 
     def test_was_published_recently_with_recent_recipe(self):
         """
-        was_published_recently() returns True for recipe whose pub_date
+        was_published_recently() returns True for recipe whose publish_date
         is within the last day.
         """
         time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
-        recent_recipe = Recipe(pub_date=time)
+        recent_recipe = Recipe(publish_date=time)
         self.assertIs(recent_recipe.was_published_recently(), True)
 
 
@@ -44,7 +44,7 @@ def create_recipe(recipe_name, days):
     in the past, positive for recipe that have yet to be published).
     """
     time = timezone.now() + datetime.timedelta(days=days)
-    return Recipe.objects.create(recipe_name=recipe_name, pub_date=time)
+    return Recipe.objects.create(recipe_name=recipe_name, publish_date=time)
 
 
 class RecipeIndexViewTests(TestCase):
@@ -60,7 +60,7 @@ class RecipeIndexViewTests(TestCase):
     # todo ensure test is syntactically correct, then ensure method is correct
     # def test_past_recipe(self):
     #     """
-    #     recipe with a pub_date in the past are displayed on the
+    #     recipe with a publish_date in the past are displayed on the
     #     index page.
     #     """
     #     create_recipe(recipe_name="Past recipe.", days=-30)
@@ -72,7 +72,7 @@ class RecipeIndexViewTests(TestCase):
 
     def test_future_recipe(self):
         """
-        recipe with a pub_date in the future aren't displayed on
+        recipe with a publish_date in the future aren't displayed on
         the index page.
         """
         create_recipe(recipe_name="Future recipe.", days=30)
@@ -111,7 +111,7 @@ class RecipeIndexViewTests(TestCase):
 class RecipeDetailViewTests(TestCase):
     def test_future_recipe(self):
         """
-        The detail view of a recipe with a pub_date in the future
+        The detail view of a recipe with a publish_date in the future
         returns a 404 not found.
         """
         future_recipe = create_recipe(recipe_name='Future recipe.', days=5)
@@ -121,7 +121,7 @@ class RecipeDetailViewTests(TestCase):
 
     def test_past_recipe(self):
         """
-        The detail view of a recipe with a pub_date in the past
+        The detail view of a recipe with a publish_date in the past
         displays the recipe's text.
         """
         past_recipe = create_recipe(recipe_name='Past recipe.', days=-5)
