@@ -16,6 +16,7 @@ class RecipeAdmin(admin.ModelAdmin):
         (None,               {'fields': ['recipe_name']}),
         ('Set publish date, default is immediately', {'fields': ['publish_date'], 'classes':['collapse']}),
         ('Information', {'fields': ['cook_time', 'servings']}),
+        # ('Ingredient\'s', {'classes': ['IngredientInline']}),
         ('Directions', {'fields': ['directions']})
     ]
     inlines = [IngredientInline]
