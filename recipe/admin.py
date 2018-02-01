@@ -10,7 +10,7 @@ class IngredientInline(admin.TabularInline):
 
 class RecipeAdmin(admin.ModelAdmin):
     search_fields = ['recipe_name']
-    list_display = ('recipe_name', 'publish_date', 'servings', 'was_published_recently')
+    list_display = ('recipe_name', 'publish_date', 'servings')
     list_filter = ['publish_date']
     fieldsets = [
         (None,               {'fields': ['recipe_name']}),
