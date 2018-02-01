@@ -5,13 +5,24 @@ from taggit.managers import TaggableManager
 from django.utils.translation import gettext as _
 
 
+class Cuisine(models.Model):
+    """types of cuisine"""
+    # recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, default=1)
+    cuisine = TaggableManager(_('cuisine'), help_text="separate with commas", blank=True)
+
+
+class Course(models.Model):
+    # recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, default=1)
+    course = TaggableManager(_('Course'), help_text="separate with commas", blank=True)
+
+
 class Recipe(models.Model):
     """The top level description"""
     recipe_name = models.CharField(_("Recipe Title"), max_length=250)
     # author = models.ForeignKey(User, verbose_name=_('user'))
     photo = models.ImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
-    # course = TaggableManager(_('Course'), help_text="separate with commas", blank=True)
-    # cuisine = TaggableManager(_('Cuisine'), help_text="separate with commas", blank=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
+    cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE, default=None)
     info = models.TextField(_('info'), help_text="enter information about the recipe")
     cook_time = models.IntegerField(_('cook time'), default=None, help_text="enter time in minutes")
     servings = models.IntegerField(_('servings'), help_text="enter total number of servings")
@@ -21,6 +32,11 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.recipe_name
+# class IngredientCost(models.Model):
+#     """The price of the individual ingredient"""
+#     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+#
+#
 
 
 class Ingredient(models.Model):
@@ -38,14 +54,3 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.ingredient_name
-
-
-# class IngredientCost(models.Model):
-#     """The price of the individual ingredient"""
-#     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-#
-#
-# class Cuisine(models.Model):
-#     """types of cuisine"""
-#     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-#     cuisine = models.CharField(max_length=240)
