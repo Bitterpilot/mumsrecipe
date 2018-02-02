@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@plt!e73mu5d!*%7=g!f#r@c&$=@#krhmzth$%&5ro2!e*q^ac'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'recipe',
-        'USER': 'django',
-        'PASSWORD': 'PASSWORD',
+        'USER': os.environ.get('DB_MYSQL_USER'),
+        'PASSWORD': os.environ.get('DB_MYSQL_PASS'),
         'HOST': '192.168.1.3',
         'PORT': '32776',
     }
