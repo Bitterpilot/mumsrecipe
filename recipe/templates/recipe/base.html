@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>recipe - {% block head %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'recipe/style.css' %}" />
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+    <header>
+
+    </header>
+    <article>
+        {% block content %}
+        {% endblock %}
+    </article>
+    <footer>
+        <p>Find me on social media.</p>
+        <a href="http://facebook.com"><i class="fa fa-facebook-official hover-opacity"></i></a>
+        <a href=""><i class="fa fa-instagram hover-opacity"></i></a>
+        <a href=""><i class="fa fa-snapchat hover-opacity"></i></a>
+        <a href=""><i class="fa fa-pinterest-p hover-opacity"></i></a>
+        <a href=""><i class="fa fa-twitter hover-opacity"></i></a>
+        <a href=""><i class="fa fa-linkedin hover-opacity"></i></a>
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+</body>
+</html>

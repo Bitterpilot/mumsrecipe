@@ -1,10 +1,20 @@
-<h1>{{ recipe.recipe_name }}</h1>
+<!--
+https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
+-->
+{% extends 'recipe/base.html' %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block head %}
+    {{ recipe.recipe_name }}
+{% endblock %}
 
+{% block content %}
+    <h1>{{ recipe.recipe_name }}</h1>
 
-    {% for ingredient in recipe.ingredient_set.all %}
-        {{ ingredient.quantity }} {{ingredient.unit}} {{ ingredient.ingredient_name }}
-    {% endfor %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{{ recipe.directions|safe }}
+        {% for ingredient in recipe.ingredient_set.all %}
+            {{ ingredient.quantity }} {{ingredient.unit}} {{ ingredient.ingredient_name }}
+        {% endfor %}
+
+    {{ recipe.directions|safe }}
+{% endblock %}
