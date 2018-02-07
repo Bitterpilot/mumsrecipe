@@ -1,14 +1,14 @@
 :root{
-	/*colours*/
+    /*colours*/
     --primary-color:#81d4fa;
-    --p-light: var(--primary-color);
+    --p-light: #b3e5fc;
     --p-dark: var(--primary-color);
     --secondary-color:#42a5f5;
     --s-light: var(--secondary-color);
     --s-dark: var(--secondary-color);
 
     /*text*/
-    --p-text-primary: 'Roboto', sans-serif;
+    --p-text-primary: 'Roboto', sans-serifS;
     --p-text-secondary:;
     --p-text-hint:;
     --s-text-primary:;
@@ -20,19 +20,62 @@ li a {
     color: green;
 }
 
-.hover-opacity:hover {
-    opacity: 0.60;
-}
-
 body {
-    background: white;
+    background: var(--p-light);
 }
 
-footer {
+header {
     background: var(--primary-color);
     font-family: var(--p-text-primary);
     text-align: center;
-	position: fixed;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.side{
+    grid-row: 1 / span 2;
+    background: white;
+    padding: 0 8px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+.ingredient{
+    grid-column: 2 /span 2;
+    background: white;
+    padding: 0 8px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+.instructions{
+    grid-column: 2 /span 2;
+    background: white;
+    padding: 0 8px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /*padding: 10px;*/
+}
+
+article{
+    margin-top: 80px;
+    /*padding: 0 8px;*/
+}
+
+article, img{
+    max-width: 100%;
+    height: auto;
+}
+
+footer, .fa{
+    background: var(--primary-color);
+    font-family: var(--p-text-primary);
+    font-size: ;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
     bottom: 0;
     right: 0;
     left: 0;

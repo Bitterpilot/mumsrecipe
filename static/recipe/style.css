@@ -1,8 +1,44 @@
+:root{
+	/*colours*/
+    --primary-color:#81d4fa;
+    --p-light: var(--primary-color);
+    --p-dark: var(--primary-color);
+    --secondary-color:#42a5f5;
+    --s-light: var(--secondary-color);
+    --s-dark: var(--secondary-color);
+
+    /*text*/
+    --p-text-primary: 'Roboto', sans-serif;
+    --p-text-secondary:;
+    --p-text-hint:;
+    --s-text-primary:;
+    --s-text-secondary:;
+    --s-text-hint:;
+}
+
 li a {
     color: green;
 }
 
+.hover-opacity:hover {
+    opacity: 0.60;
+}
+
 body {
-    background: white url("images/background.gif") no-repeat center center;
-    background-size: cover;
+    background: white;
+}
+
+footer {
+    background: var(--primary-color);
+    font-family: var(--p-text-primary);
+    text-align: center;
+	position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+footer, a:link, a:visited { 
+    color: var(--p-text-primary);
+    cursor: auto;
 }

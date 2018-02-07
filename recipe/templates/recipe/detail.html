@@ -2,19 +2,31 @@
 https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
 -->
 {% extends 'recipe/base.html' %}
-
+{% load static %}
+<!--title head, window/tab title-->
 {% block head %}
     {{ recipe.recipe_name }}
 {% endblock %}
 
-{% block content %}
+<!--top of page header-->
+{% block header %}
     <h1>{{ recipe.recipe_name }}</h1>
+{% endblock %}
 
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
+{% block article %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    <div class="side">
+        <!--todo place placeholder in if statement if no image provided-->
+        <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
+        <p>cook time</p>
+    </div>
+    <div class="ingredient">
         {% for ingredient in recipe.ingredient_set.all %}
             {{ ingredient.quantity }} {{ingredient.unit}} {{ ingredient.ingredient_name }}
         {% endfor %}
-
-    {{ recipe.directions|safe }}
+    </div>
+    <div class="instructions">
+        {{ recipe.directions|safe }}
+    </div>
 {% endblock %}

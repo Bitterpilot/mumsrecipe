@@ -12,20 +12,21 @@
 </head>
 <body>
     <header>
-
+        {% block header %}
+        {% endblock %}
     </header>
-    <article>
-        {% block content %}
+    <article class="grid-container">
+        {% block article %}
         {% endblock %}
     </article>
     <footer>
         <p>Find me on social media.</p>
-        <a href="http://facebook.com"><i class="fa fa-facebook-official hover-opacity"></i></a>
-        <a href=""><i class="fa fa-instagram hover-opacity"></i></a>
-        <a href=""><i class="fa fa-snapchat hover-opacity"></i></a>
-        <a href=""><i class="fa fa-pinterest-p hover-opacity"></i></a>
-        <a href=""><i class="fa fa-twitter hover-opacity"></i></a>
-        <a href=""><i class="fa fa-linkedin hover-opacity"></i></a>
+        <a href="http://www.facebook.com" class="fa fa-facebook-official"></a>
+        <a href="" class="fa fa-instagram"></a>
+        <a href="" class="fa fa-snapchat "></a>
+        <a href="" class="fa fa-pinterest-p "></a>
+        <a href="" class="fa fa-twitter "></a>
+        <a href="" class="fa fa-linkedin "></a>
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>
 </body>
