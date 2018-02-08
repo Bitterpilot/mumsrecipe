@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63a75859-c82c-4629-977e-d2e142e5d5bc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/recipe/static/recipe/images/placeholder.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/recipe/static/recipe/style.css" afterPath="$PROJECT_DIR$/recipe/static/recipe/style.css" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/base.html" afterPath="$PROJECT_DIR$/recipe/templates/recipe/base.html" />
-      <change beforePath="$PROJECT_DIR$/recipe/templates/recipe/detail.html" afterPath="$PROJECT_DIR$/recipe/templates/recipe/detail.html" />
-      <change beforePath="$PROJECT_DIR$/static/recipe/style.css" afterPath="$PROJECT_DIR$/static/recipe/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -337,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517914907552</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Lots of work on CSS and HTML">
+      <created>1518009164181</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1518009164181</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
