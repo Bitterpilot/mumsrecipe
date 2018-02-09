@@ -11,16 +11,16 @@ class Recipe(models.Model):
     recipe_name = models.CharField(_("Recipe Title"), max_length=250)
     # slug = models.SlugField(unique=True)
     # author = models.ForeignKey(User, verbose_name=_('user'))
-    photo = models.ImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
+    photo = models.ImageField(_('photo'), blank=True, upload_to="media/upload/recipe_photos")
     # course = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
     # cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE, default=None)
-    info = models.TextField(_('info'), help_text=_("enter information about the recipe"))
+    info = models.TextField(_('Short Description'), max_length=250, help_text=_("enter information about the recipe"))
     cook_time = models.IntegerField(_('cook time'), default=None, help_text=_("enter time in minutes"))
     servings = models.IntegerField(_('servings'), help_text=_("enter total number of servings"))
-    directions = models.TextField(_('directions'), default=None)
     created_on = models.DateTimeField(default=timezone.now)
     publish_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(default=timezone.now)
+    directions = models.TextField(_('directions'), default=None)
 
     def __str__(self):
         return self.recipe_name

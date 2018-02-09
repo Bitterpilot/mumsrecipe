@@ -14,22 +14,39 @@ https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
 {% endblock %}
 
 {% block article %}
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
     {% endif %}
 
-<!--todo wire-frame is complete no actually build the model and put it into the html-->
+<!--todo wire-frame is complete now actually build the model and put it into the html-->
 
     <div class="side">
         <!--todo place placeholder in if statement if no image provided-->
         <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
-        <p>cook time</p>
+        <!--<img src="{{ recipe.photo }}" alt="My image"/>-->
+        <p>{{ recipe.recipe_name }}</p>
+        <p>{{ recipe.info|safe }}</p>
+        <p>Serves {{ recipe.servings }} people</p>
+        <p>{{ recipe.cook_time }} minutes</p>
     </div>
+
+
     <div class="ingredient">
+        <h2>Ingredients</h2>
+        <table>
         {% for ingredient in recipe.ingredient_set.all %}
-            {{ ingredient.quantity }} {{ingredient.unit}} {{ ingredient.ingredient_name }}
+            <tr>
+                <th>{{ ingredient.quantity }} {{ingredient.unit}}</th>
+                <th>{{ ingredient.ingredient_name }}</th>
+            </tr>
         {% endfor %}
+        </table>
     </div>
+
+
     <div class="instructions">
         {{ recipe.directions|safe }}
     </div>
+
+
 {% endblock %}

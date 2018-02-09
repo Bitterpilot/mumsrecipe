@@ -14,8 +14,8 @@ class RecipeAdmin(admin.ModelAdmin):
     list_filter = ['publish_date']
     fieldsets = [
         (None, {'fields': ['recipe_name']}),
-        ('Set publish date, default is immediately', {'fields': ['publish_date'], 'classes':['collapse']}),
-        ('Information', {'fields': ['cook_time', 'servings']}),
+        ('Set publish date, default is immediately', {'fields': ['created_on', 'publish_date', 'update_date']}),
+        ('Information', {'fields': ['cook_time', 'servings', 'photo', 'info']}),
         ('Directions', {'fields': ['directions']})
     ]
     inlines = [IngredientInline]
