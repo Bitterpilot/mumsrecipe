@@ -20,20 +20,27 @@ https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
 
 <!--todo wire-frame is complete now actually build the model and put it into the html-->
 
-    <div class="side">
-        <!--todo place placeholder in if statement if no image provided-->
-        <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
-        <!--<img src="{{ recipe.photo }}" alt="My image"/>-->
-        <p>{{ recipe.recipe_name }}</p>
-        <p>{{ recipe.info|safe }}</p>
-        <p>Serves {{ recipe.servings }} people</p>
-        <p>{{ recipe.cook_time }} minutes</p>
-    </div>
+<div class="side">
+    <!--todo place placeholder in if statement if no image provided-->
+    {% if error_message %}
+            <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
+        {% else %}
+            <img src="{% get_media_prefix %}{{ recipe.photo }}" alt="My image"/>
+    {% endif %}
+    <p class="title">{{ recipe.recipe_name }}</p>
+    <p>{{ recipe.info|safe }}</p>
+    <p>Serves {{ recipe.servings }} people</p>
+    <p>{{ recipe.cook_time }} minutes</p>
+</div>
 
 
     <div class="ingredient">
         <h2>Ingredients</h2>
         <table>
+            <!--
+            https://www.w3schools.com/howto/howto_js_accordion.asp
+            https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion
+            -->
         {% for ingredient in recipe.ingredient_set.all %}
             <tr>
                 <th>{{ ingredient.quantity }} {{ingredient.unit}}</th>
@@ -45,6 +52,7 @@ https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
 
 
     <div class="instructions">
+        <h2>Instructions</h2>
         {{ recipe.directions|safe }}
     </div>
 

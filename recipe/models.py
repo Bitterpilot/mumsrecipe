@@ -10,7 +10,9 @@ class Recipe(models.Model):
     """The top level description"""
     recipe_name = models.CharField(_("Recipe Title"), max_length=250)
     # slug = models.SlugField(unique=True)
-    # author = models.ForeignKey(User, verbose_name=_('user'))
+    #      users through Oauth
+    #      https://stackoverflow.com/questions/21995917/python-social-auth-django-template-example
+    #      author = models.ForeignKey(User, verbose_name=_('user'))
     photo = models.ImageField(_('photo'), blank=True, upload_to="media/upload/recipe_photos")
     # course = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
     # cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE, default=None)

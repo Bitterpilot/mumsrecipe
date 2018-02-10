@@ -55,16 +55,18 @@ header {
 
 .grid-container {
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /*padding: 10px;*/
+    grid-gap: 20px;
+    grid-template-columns: repeat(3,1fr);
 }
 
 article{
     margin-top: 80px;
+    width: 70%;
+    align-content: center;
     /*padding: 0 8px;*/
 }
 
-article, img{
+img{
     vertical-align: middle;
     width: 100%;
     height: auto;
