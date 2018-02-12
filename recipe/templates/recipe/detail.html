@@ -20,18 +20,18 @@ https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
 
 <!--todo wire-frame is complete now actually build the model and put it into the html-->
 
-<div class="side">
-    <!--todo place placeholder in if statement if no image provided-->
-    {% if error_message %}
-            <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
+    <div class="side">
+    <!--todo this should represent the tile on the Index-->
+    {% if recipe.photo %}
+        <img src="{% get_media_prefix %}{{ recipe.photo }}" alt="My image"/>
         {% else %}
-            <img src="{% get_media_prefix %}{{ recipe.photo }}" alt="My image"/>
+        <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
     {% endif %}
     <p class="title">{{ recipe.recipe_name }}</p>
     <p>{{ recipe.info|safe }}</p>
     <p>Serves {{ recipe.servings }} people</p>
     <p>{{ recipe.cook_time }} minutes</p>
-</div>
+    </div>
 
 
     <div class="ingredient">
