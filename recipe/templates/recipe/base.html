@@ -1,0 +1,37 @@
+<!--
+landing page
+https://www.w3schools.com/w3css/tryw3css_templates_gourmet_catering.htm
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>recipe - {% block head %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'recipe/style.css' %}" />
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
+    <article class="grid-container">
+        {% block article %}
+        {% endblock %}
+    </article>
+    <footer>
+        <p>Find me on social media.</p>
+        <a href="http://www.facebook.com" class="fa fa-facebook-official"></a>
+        <a href="" class="fa fa-instagram"></a>
+        <a href="" class="fa fa-snapchat "></a>
+        <a href="" class="fa fa-pinterest-p "></a>
+        <a href="" class="fa fa-twitter "></a>
+        <a href="" class="fa fa-linkedin "></a>
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+</body>
+</html>
