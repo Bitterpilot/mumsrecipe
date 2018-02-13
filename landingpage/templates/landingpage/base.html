@@ -9,19 +9,14 @@ https://www.w3schools.com/w3css/tryw3css_templates_gourmet_catering.htm
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block title %}<title>Catering</title>{% endblock %}
     {% load static %}
-    <link rel="stylesheet" href="{% static '/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'recipe/style.css' %}" />
+    <link rel="stylesheet" href="{% static '/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--icons-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"><!--font-->
 </head>
 <body>
-    {% block header %}
-    {% endblock %}
-    <article class="grid-container">
+    {% include 'landingpage/header.html' %}
     {% block article %}
     {% endblock %}
-    </article>
-    {% block footer %}
-    {% endblock %}
+    {% include 'landingpage/footer.html' %}
 </body>
 </html>
