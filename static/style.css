@@ -16,23 +16,6 @@ header {
     background: inherit;
 }
 
-.banner-grid{
-    width: none;
-    display: grid;
-    grid-template-areas: 
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: auto;
-    grid-template-areas:
-        "g-img g-img g-img g-img";
-}
-.banner-grid-img{
-    grid-area: g-img;
-}
-.banner-grid-text{
-    grid-area: g-text;
-    z-index: 2;
-}
-
 .side{
     grid-row: 1 / span 2;
     background: white;
