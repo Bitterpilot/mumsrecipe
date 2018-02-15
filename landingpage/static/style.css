@@ -3,6 +3,7 @@
 
 body {
     margin: 0;
+    background: #ffffff;
 }
 
 header {
@@ -12,7 +13,7 @@ header {
     right: 0;
     left: 0;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px;
-    background: white;
+    background: inherit;
 }
 
 .side{
@@ -44,7 +45,6 @@ article{
     margin-top: 80px;
     width: 70%;
     align-content: center;
-    /*padding: 0 8px;*/
 }
 
 img{
