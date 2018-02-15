@@ -27,7 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #
     path('', include('landingpage.urls')),
-    path('recipe/', include('recipe.urls'))
+    path('recipe/', include('recipe.urls')),
+    path('contact/', include('contactform.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += [
