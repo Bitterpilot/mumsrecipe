@@ -25,7 +25,8 @@ from django.views.static import serve
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
-    path('recipe/', include('recipe.urls'))
+    path('recipe/', include('recipe.urls')),
+    path('contact/', include('contactform.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += [
