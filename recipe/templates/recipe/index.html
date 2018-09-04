@@ -1,0 +1,15 @@
+<!--
+https://www.w3schools.com/w3css/tryw3css_templates_food_blog.htm#food
+-->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipe/style.css' %}" />
+
+{% if latest_recipe_list %}
+    <ul>
+    {% for recipe in latest_recipe_list %}
+        <li><a href="{% url 'recipe:detail' recipe.id %}">{{ recipe.recipe_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No recipe are available.</p>
+{% endif %}

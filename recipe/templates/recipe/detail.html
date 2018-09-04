@@ -1,0 +1,60 @@
+<!--
+https://www.w3schools.com/w3css/tryw3css_templates_cv.htm
+-->
+{% extends 'recipe/base.html' %}
+{% load static %}
+<!--title head, window/tab title-->
+{% block head %}
+    {{ recipe.recipe_name }}
+{% endblock %}
+
+<!--top of page header-->
+{% block header %}
+    <h1>{{ recipe.recipe_name }}</h1>
+{% endblock %}
+
+{% block article %}
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+<!--todo wire-frame is complete now actually build the model and put it into the html-->
+
+    <div class="side">
+    <!--todo this should represent the tile on the Index-->
+    {% if recipe.photo %}
+        <img src="{% get_media_prefix %}{{ recipe.photo }}" alt="My image"/>
+        {% else %}
+        <img src="{% static "recipe/images/placeholder.png" %}" alt="My image"/>
+    {% endif %}
+    <p class="title">{{ recipe.recipe_name }}</p>
+    <p>{{ recipe.info|safe }}</p>
+    <p>Serves {{ recipe.servings }} people</p>
+    <p>{{ recipe.cook_time }} minutes</p>
+    </div>
+
+
+    <div class="ingredient">
+        <h2>Ingredients</h2>
+        <table>
+            <!--
+            https://www.w3schools.com/howto/howto_js_accordion.asp
+            https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion
+            -->
+        {% for ingredient in recipe.ingredient_set.all %}
+            <tr>
+                <th>{{ ingredient.quantity }} {{ingredient.unit}}</th>
+                <th>{{ ingredient.ingredient_name }}</th>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+
+    <div class="instructions">
+        <h2>Instructions</h2>
+        {{ recipe.directions|safe }}
+    </div>
+
+
+{% endblock %}
